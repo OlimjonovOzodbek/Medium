@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Medium.Application.Absatractions;
+using Medium.Application.Absatractions.Mapper;
 using Medium.Application.UseCases.MediumUser.Commands;
 using Medium.Domain.Entities;
 using System;
@@ -24,7 +25,7 @@ namespace Medium.Application.UseCases.MediumUser.Handler
 
         protected async override Task Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = _mapper.Map<User>(request);
+            var user = request.MyMapp<User>();
             await _applicationDbContext.Users.AddAsync(user); 
             await _applicationDbContext.SaveChangesAsync(cancellationToken);
         }

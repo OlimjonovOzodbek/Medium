@@ -16,7 +16,7 @@ namespace Medium.Application
         public static IServiceCollection AddApplication(this IServiceCollection service)
         {
             service.AddMediatR(Assembly.GetExecutingAssembly());
-            service.AddAutoMapper(typeof(AutoMapperProfile));
+            //service.AddAutoMapper(typeof(MyMapper));
             return service;
         }
     }
